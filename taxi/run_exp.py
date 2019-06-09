@@ -1,13 +1,11 @@
-import os
 import sys
 import argparse
-import optparse
-import subprocess
+
 import numpy as np
-from Density_Ratio_discrete import Density_Ratio_discrete, \
-    Density_Ratio_discounted
-from Q_learning import Q_learning
-from environment import random_walk_2d, taxi
+
+from taxi.Density_Ratio_discrete import Density_Ratio_discounted
+from taxi.Q_learning import Q_learning
+from taxi.environment import taxi
 
 
 # import matplotlib
