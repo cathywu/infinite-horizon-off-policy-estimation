@@ -1,9 +1,9 @@
 import numpy as np
-from scipy.optimize import linprog
-from scipy.optimize import minimize
 import quadprog
 
 
+'''
+# from scipy.optimize import linprog
 def linear_solver(n, M):
     M -= np.amin(M)  # Let zero sum game at least with nonnegative payoff
     c = np.ones((n))
@@ -11,6 +11,7 @@ def linear_solver(n, M):
     res = linprog(-c, A_ub=M.T, b_ub=b)
     w = res.x
     return w / np.sum(w)
+'''
 
 
 def quadratic_solver(n, M, regularizer):
