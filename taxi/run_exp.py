@@ -162,7 +162,7 @@ def Q_learning(env, num_trajectory, truncate_size, temperature = 2.0):
 
 	state = env.reset()
 	for k in range(20):
-		print 'Training for episode {}'.format(k)
+		print('Training for episode {}'.format(k))
 		for i in range(50):
 			for j in range(5000):
 				action = agent.choose_action(state, temperature)
@@ -172,7 +172,7 @@ def Q_learning(env, num_trajectory, truncate_size, temperature = 2.0):
 		pi = agent.get_pi(temperature)
 		np.save('taxi-policy/pi{}.npy'.format(k), pi)
 		SAS, f, avr_reward = roll_out(n_state, env, pi, num_trajectory, truncate_size)
-		print 'Episode {} reward = {}'.format(k, avr_reward)
+		print('Episode {} reward = {}'.format(k, avr_reward))
 		heat_map(length, f, env, 'heatmap/pi{}.pdf'.format(k))
 
 def heat_map(length, f, env, filename):
@@ -266,12 +266,12 @@ if __name__ == '__main__':
 	behavior_ID = 4
 	target_ID = 5
 	
-	pi_target = np.load('taxi-policy/pi19.npy')
+	pi_target = np.load('taxi/taxi-policy/pi19.npy')
 	alpha = 0.0 # mixture ratio
 	nt = args.nt # num_trajectory
 	ts = args.ts # truncate_size
 	gm = args.gm # gamma
-	pi_behavior = np.load('taxi-policy/pi18.npy')
+	pi_behavior = np.load('taxi/taxi-policy/pi18.npy')
 
 	pi_behavior = alpha * pi_target + (1-alpha) * pi_behavior
 
